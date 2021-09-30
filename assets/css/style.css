@@ -1,0 +1,323 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --font-primary: "Playfair Display", serif;
+  --font-secundary: "Montserrat", sans-serif;
+  --color-1:#4f4f4f;
+  --color-2:#333333;
+  --color-3:#bdbdbd;
+  --color-4:#f2994a;
+  --color-5:#fff;
+  --color-6:#828282;
+}
+
+.container {
+  width: 100%;
+  max-width: 992px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.box-img {
+  width: 100%;
+}
+
+.box-img img {
+  width: 100%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 266px;
+}
+
+/* header */
+header {
+  margin: 60px 0;
+}
+header .title {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 64px;
+}
+
+header .description {
+  font-family: var(--font-secundary);
+  font-weight: 500;
+  font-style: italic;
+  color: var(--color-1);
+  font-size: 14px;
+  margin-top: 30px;
+}
+
+header .description::before {
+  content: "";
+  width: 50px;
+  height: 8px;
+  background: url(../img/6dots.svg);
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* main */
+.ingredients-content > * {
+  margin: 30px 0;
+}
+.title {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  color: var(--color-2);
+}
+
+.ingredients-content .list-description {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 18px;
+  font-style: italic;
+  line-height: 24px;
+  color: var(--color-2);
+}
+
+.list .list-item {
+  list-style: none;
+  margin: 15px 0;
+  display: flex;
+  align-items: start;
+  gap: 15px;
+  width: 600px;
+}
+
+.list .list-item label {
+  font-size: 16px;
+  line-height: 25px;
+}
+
+/* aside */
+aside {
+  margin-top: 30px;
+}
+aside .list-aside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+aside .list-aside .list-aside-item {
+  min-width: 82px;
+  list-style: none;
+  margin: 30px 0;
+  position: relative;
+}
+
+aside .list-aside .list-aside-item span {
+  color: var(--color-3);
+  font-weight: bold;
+  font-size: 10px;
+  line-height: 12px;
+  text-transform: uppercase;
+}
+
+aside .list-aside .list-aside-item p {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+aside .list-aside .list-aside-item::before {
+  font-family: "Material Icons";
+  font-size: 27.09px;
+  position: absolute;
+  right: 115%;
+}
+
+aside .list-aside .list-aside-item.active::before,
+aside .list-aside .list-aside-item.active p {
+  color: var(--color-4);
+}
+
+aside .list-aside .list-aside-item[data-icon="e561"]::before {
+  content: "\e561";
+}
+
+aside .list-aside .list-aside-item[data-icon="e8b5"]::before {
+  content: "\e8b5";
+}
+
+/* intructions */
+.intructions-content .title {
+  margin: 30px 0;
+}
+.intructions-item {
+  list-style: none;
+  margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 15px;
+}
+
+.intructions-item::before {
+  content: attr(data-number);
+  width: 36px;
+  height: 36px;
+  display: block;
+  text-align: center;
+  border-radius: 6px;
+  font-size: 24px;
+  color: var(--color-5);
+  font-weight: 700;
+  font-family: var(--font-primary);
+  line-height: 32px;
+  background: var(--color-4);
+}
+
+.intructions-content > p {
+  color: var(--color-3);
+  font-family: var(--font-secundary);
+  font-style: italic;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 150%;
+  margin: 60px 0;
+}
+
+.intructions-content > p > a {
+  color: var(--color-3);
+  text-decoration: none;
+}
+
+/* footer */
+footer {
+  color: var(--color-6);
+  text-align: center;
+  margin: 30px 0;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 768px) {
+  /* Header */
+  header {
+    margin: 30px 0;
+  }
+  header .title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  header .description {
+    font-size: 12px;
+    line-height: 15px;
+    margin: 15px 0;
+  }
+
+  header .description::before {
+    width: 13px;
+    margin-right: 10px;
+  }
+
+  /* main */
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "aside"
+      "ingredients"
+      "instructions";
+  }
+  .ingredients-content {
+    grid-area: ingredients;
+  }
+
+  aside {
+    grid-area: aside;
+    margin-top: 0;
+  }
+
+  aside .list-aside {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: start;
+    padding: 15px 0;
+    border-radius: 12px;
+    box-shadow: none;
+  }
+
+  aside .list-aside .list-aside-item {
+    margin: 0;
+    margin-left: 30px;
+  }
+
+  aside .list-aside .list-aside-item.active {
+    width: 100%;
+  }
+
+  aside .list-aside .list-aside-item::before {
+    font-size: 20px;
+    left: -30px;
+  }
+
+  aside .list-aside .list-aside-item span {
+    font-size: 8px;
+    line-height: 10px;
+  }
+
+  aside .list-aside .list-aside-item p {
+    font-size: 10px;
+    line-height: 12px;
+  }
+
+  .title {
+    font-size: 18px;
+    line-height: 24px;
+    margin: 15px 0;
+  }
+
+  .ingredients-content .list-description {
+    font-size: 16px;
+    line-height: 21px;
+    margin: 15px 0;
+  }
+
+  .list .list-item {
+    width: 100%;
+  }
+
+  .list .list-item label {
+    font-size: 14px;
+  }
+
+  .intructions-content {
+    grid-area: instructions;
+  }
+
+  .intructions-content .title {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .intructions-item {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .intructions-content > p {
+    font-size: 12px;
+    margin: 45px 0;
+  }
+
+  .intructions-content > p > a {
+    display: block;
+  }
+}
